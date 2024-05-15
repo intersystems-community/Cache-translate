@@ -1,16 +1,12 @@
+# The most minimumalistic dockerfile possible.
+#  No embedded python support, no unit-testing, no aliases.
+ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
 
-USER root
+WORKDIR /home/irisowner/dev
 
-WORKDIR /opt/irisapp
-RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
-USER ${ISC_PACKAGE_MGRUSER}
-
-COPY src src
-COPY module.xml module.xml
-COPY iris.script /tmp/iris.script
-
-RUN iris start IRIS \
-    && iris session IRIS < /tmp/iris.script \
-    && iris stop IRIS quietly
+RUN --mount=type=bind,src=.,dst=. \
+    iris start IRIS && \
+    iris session IRIS < iris.script && \
+    iris stop IRIS quietly

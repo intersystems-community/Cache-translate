@@ -1,6 +1,3 @@
 if $zf(-1,"echo ':w ##class(TRL.Translator).Translate(""en"",""ru"",""Some text"") ' >> ~/.iris_history")
 
-
-zpm "load /opt/irisapp/ -v":1
-
-halt
+zpm "load /home/irisowner/dev -v":1:1
