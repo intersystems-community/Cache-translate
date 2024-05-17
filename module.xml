@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Document name="sample-translate.ZPM">
+<Module>
+ <Name>sample-translate</Name>
+  <Version>1.0.0</Version>
+  <Description>Package for translating text, made during the hackathon in Czech Republic 2.02-3.02</Description>
+  <Packaging>module</Packaging>
+  <SourcesRoot>src</SourcesRoot> 
+  <Resource Name="TRL.PKG"/> 
+</Module>
+</Document></Export>
